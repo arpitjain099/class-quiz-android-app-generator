@@ -133,15 +133,17 @@
 <body>
 <script src="data.js"></script>
 <script type="text/javascript">
-window.localStorage.setItem("index", 1);
+window.localStorage.setItem("index", 0);
 window.localStorage.setItem("userid","arpitj");
 function populatevalues(){
 
     if(window.localStorage.getItem("index")<sampletask.length){
 
     //alert(sampletask.length);
-    var temp=window.localStorage.getItem("index")-1;
-    console.log(sampletask[temp].timelimit);
+    var temp=window.localStorage.getItem("index");
+    console.log(temp);
+    //console.log(sampletask[temp].timelimit);
+
     //alert(typeof(temp.time));
     createtimer(sampletask[temp].timelimit + 1);
       document.getElementById('question').innerHTML=sampletask[temp].question;
@@ -160,6 +162,7 @@ function populatevalues(){
 function f1()
 
 {
+  console.log("f1 called");
   if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
   xmlhttp=new XMLHttpRequest();
@@ -192,7 +195,7 @@ xmlhttp.onreadystatechange=function()
      //}
     }
   }
-xmlhttp.open("POST","http://172.27.30.129/classquiz/handler.php",true);
+xmlhttp.open("POST","http://172.27.20.232/classquiz/handler.php",true);
 xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 //alert();
 
@@ -204,9 +207,9 @@ sts=sts.concat("&questionid=").concat(temp.index);
 sts=sts.concat("&timestamp=").concat(Date.now() / 1000);
 //alert(sts);
 xmlhttp.send(sts);
- var localvar=window.localStorage.getItem("index");
+ var localvar=parseInt(window.localStorage.getItem("index"));
       window.localStorage.setItem("index", localvar+1);
-
+populatevalues();
 }
 
 
@@ -258,7 +261,7 @@ sts=sts.concat("&timestamp=").concat(Date.now() / 1000);
 //alert(sts);
 xmlhttp.send(sts);
 
- var localvar=window.localStorage.getItem("index");
+ var localvar=parseInt(window.localStorage.getItem("index"));
       window.localStorage.setItem("index", localvar+1);
 }
 
@@ -310,7 +313,7 @@ sts=sts.concat("&timestamp=").concat(Date.now() / 1000);
 //alert(sts);
 xmlhttp.send(sts);
 
- var localvar=window.localStorage.getItem("index");
+ var localvar=parseInt(window.localStorage.getItem("index"));
       window.localStorage.setItem("index", localvar+1);
 }
 
@@ -362,15 +365,15 @@ sts=sts.concat("&timestamp=").concat(Date.now() / 1000);
 //alert(sts);
 xmlhttp.send(sts);
 
- var localvar=window.localStorage.getItem("index");
+ var localvar=parseInt(window.localStorage.getItem("index"));
       window.localStorage.setItem("index", localvar+1);
 }
-var timerhelp;
+
     function createtimer (sec){
 var countdown = document.getElementById("countdown");
 
 // update the tag with id "countdown" every 1 second
-timerhelp =setInterval(function () {
+var timerhelp =setInterval(function () {
 
     sec--;
     window.localStorage.setItem("time",sec);
@@ -378,17 +381,21 @@ timerhelp =setInterval(function () {
 
     countdown.innerHTML =  sec + "s";   
     if(sec==0){
-      var localvar=window.localStorage.getItem("index");
+      var localvar=parseInt(window.localStorage.getItem("index"));
       window.localStorage.setItem("index", localvar+1);
-        clearInterval(timerhelp);
+      if(window.localStorage.getItem("index")>=sampletask.length){
+        alert("Time up");
+        window.location.assign("index.html");
+      }
       populatevalues();
-
+      clearInterval(timerhelp);
     }
 }, 1000);
 }
 
 //alert(window.localStorage.getItem("index"));
   $(document).ready(function () {
+    var timerhelp;
     populatevalues();
   });
 </script>
@@ -408,19 +415,19 @@ timerhelp =setInterval(function () {
   </div>
    <div class="row">
     <div class="six columns">
-      <p id="option1" onclick="f1"></p>
+      <p id="option1 onclick='f1()'"></p>
     </div>
      <div class="six columns">
-      <p id="option2"></p>
+      <p id="option2 onclick='f2()'"></p>
     </div>
    
   </div><div class="row">
     <div class="six columns">
-      <p id="option3"></p>
+      <p id="option3 onclick='f3()"></p>
     </div>
    
      <div class="six columns">
-      <p id="option4"></p>
+      <p id="option4 onclick='f4()"></p>
     </div>
   
   </div>
