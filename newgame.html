@@ -171,39 +171,16 @@ else
   {// code for IE6, IE5
   xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
   }
-xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-      alert(xmlhttp.responseText);
-      window.location.assign('index.html');
 
-    //if(xmlhttp.responseText=="user exists")
-    //document.getElementById("status").innerHTML="Wrong credentials entered. Please try again!";
-  //alert("Email ID already taken. Try a new one!");
-//window.location.assign('index.html');
-
-
-    //else if (xmlhttp.responseText=="user inserted"){
-     // alert("User registered. Proceed to login page.")
-      //window.location.assign('index.html');
-     
-     //else if(xmlhttp.responseText=="Exception caught")
-     //{
-      //alert("Some error occurred. Please try again!")
-      //window.location.assign('index.html');
-     //}
-    }
-  }
-xmlhttp.open("POST","http://172.27.20.232/classquiz/handler.php",true);
+xmlhttp.open("POST",baseurl,true);
 xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 //alert();
 
 //sts="username=".concat(document.getElementById("signupform").elements[0].value);
 sts="userid=".concat(window.localStorage.getItem("userid"));
 sts=sts.concat("&answer=").concat('A');
-sts=sts.concat("&time=").concat(temp.time-window.localStorage.getItem("time"));
-sts=sts.concat("&questionid=").concat(temp.index);
+sts=sts.concat("&time=").concat(parseInt(sampletask[window.localStorage.getItem('index')].timelimit)-parseInt(window.localStorage.getItem("time")));
+sts=sts.concat("&questionid=").concat(sampletask[window.localStorage.getItem('index')].index);
 sts=sts.concat("&timestamp=").concat(Date.now() / 1000);
 //alert(sts);
 xmlhttp.send(sts);
@@ -215,7 +192,7 @@ populatevalues();
 
 function f2()
 
-{
+{console.log("f2 called");
   if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
   xmlhttp=new XMLHttpRequest();
@@ -224,50 +201,27 @@ else
   {// code for IE6, IE5
   xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
   }
-xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-      alert(xmlhttp.responseText);
-      window.location.assign('index.html');
 
-    //if(xmlhttp.responseText=="user exists")
-    //document.getElementById("status").innerHTML="Wrong credentials entered. Please try again!";
-  //alert("Email ID already taken. Try a new one!");
-//window.location.assign('index.html');
-
-
-    //else if (xmlhttp.responseText=="user inserted"){
-     // alert("User registered. Proceed to login page.")
-      //window.location.assign('index.html');
-     
-     //else if(xmlhttp.responseText=="Exception caught")
-     //{
-      //alert("Some error occurred. Please try again!")
-      //window.location.assign('index.html');
-     //}
-    }
-  }
-xmlhttp.open("POST","http://172.27.30.129/classquiz/handler.php",true);
+xmlhttp.open("POST",baseurl,true);
 xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 //alert();
 
 //sts="username=".concat(document.getElementById("signupform").elements[0].value);
 sts="userid=".concat(window.localStorage.getItem("userid"));
 sts=sts.concat("&answer=").concat('B');
-sts=sts.concat("&time=").concat(temp.time-window.localStorage.getItem("time"));
-sts=sts.concat("&questionid=").concat(temp.index);
+sts=sts.concat("&time=").concat(parseInt(sampletask[window.localStorage.getItem('index')].timelimit)-parseInt(window.localStorage.getItem("time")));
+sts=sts.concat("&questionid=").concat(sampletask[window.localStorage.getItem('index')].index);
 sts=sts.concat("&timestamp=").concat(Date.now() / 1000);
 //alert(sts);
 xmlhttp.send(sts);
 
  var localvar=parseInt(window.localStorage.getItem("index"));
-      window.localStorage.setItem("index", localvar+1);
+      window.localStorage.setItem("index", localvar+1);populatevalues();
 }
 
 function f3()
 
-{
+{console.log("f3 called");
   if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
   xmlhttp=new XMLHttpRequest();
@@ -276,97 +230,47 @@ else
   {// code for IE6, IE5
   xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
   }
-xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-      alert(xmlhttp.responseText);
-      window.location.assign('index.html');
 
-    //if(xmlhttp.responseText=="user exists")
-    //document.getElementById("status").innerHTML="Wrong credentials entered. Please try again!";
-  //alert("Email ID already taken. Try a new one!");
-//window.location.assign('index.html');
-
-
-    //else if (xmlhttp.responseText=="user inserted"){
-     // alert("User registered. Proceed to login page.")
-      //window.location.assign('index.html');
-     
-     //else if(xmlhttp.responseText=="Exception caught")
-     //{
-      //alert("Some error occurred. Please try again!")
-      //window.location.assign('index.html');
-     //}
-    }
-  }
-xmlhttp.open("POST","http://172.27.30.129/classquiz/handler.php",true);
+xmlhttp.open("POST",baseurl,true);
 xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 //alert();
 
 //sts="username=".concat(document.getElementById("signupform").elements[0].value);
 sts="userid=".concat(window.localStorage.getItem("userid"));
 sts=sts.concat("&answer=").concat('C');
-sts=sts.concat("&time=").concat(temp.time-window.localStorage.getItem("time"));
-sts=sts.concat("&questionid=").concat(temp.index);
+sts=sts.concat("&time=").concat(parseInt(sampletask[window.localStorage.getItem('index')].timelimit)-parseInt(window.localStorage.getItem("time")));
+sts=sts.concat("&questionid=").concat(sampletask[window.localStorage.getItem('index')].index);
 sts=sts.concat("&timestamp=").concat(Date.now() / 1000);
 //alert(sts);
 xmlhttp.send(sts);
 
  var localvar=parseInt(window.localStorage.getItem("index"));
-      window.localStorage.setItem("index", localvar+1);
+      window.localStorage.setItem("index", localvar+1);populatevalues();
 }
 
 function f4()
 
-{
-  if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
+{console.log("f4 called");
   xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.onreadystatechange=function()
+  xmlhttp.onreadystatechange=function()
   {
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
-      alert(xmlhttp.responseText);
-      window.location.assign('index.html');
-
-    //if(xmlhttp.responseText=="user exists")
-    //document.getElementById("status").innerHTML="Wrong credentials entered. Please try again!";
-  //alert("Email ID already taken. Try a new one!");
-//window.location.assign('index.html');
-
-
-    //else if (xmlhttp.responseText=="user inserted"){
-     // alert("User registered. Proceed to login page.")
-      //window.location.assign('index.html');
-     
-     //else if(xmlhttp.responseText=="Exception caught")
-     //{
-      //alert("Some error occurred. Please try again!")
-      //window.location.assign('index.html');
-     //}
+ var localvar=parseInt(window.localStorage.getItem("index"));
+      window.localStorage.setItem("index", localvar+1);populatevalues();
     }
   }
-xmlhttp.open("POST","http://172.27.30.129/classquiz/handler.php",true);
+xmlhttp.open("POST",baseurl,true);
 xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-//alert();
-
-//sts="username=".concat(document.getElementById("signupform").elements[0].value);
 sts="userid=".concat(window.localStorage.getItem("userid"));
 sts=sts.concat("&answer=").concat('D');
-sts=sts.concat("&time=").concat(temp.time-window.localStorage.getItem("time"));
-sts=sts.concat("&questionid=").concat(temp.index);
+sts=sts.concat("&time=").concat(parseInt(sampletask[window.localStorage.getItem('index')].timelimit)-parseInt(window.localStorage.getItem("time")));
+sts=sts.concat("&questionid=").concat(sampletask[window.localStorage.getItem('index')].index);
 sts=sts.concat("&timestamp=").concat(Date.now() / 1000);
 //alert(sts);
 xmlhttp.send(sts);
 
- var localvar=parseInt(window.localStorage.getItem("index"));
-      window.localStorage.setItem("index", localvar+1);
+
 }
 
     function createtimer (sec){
@@ -381,6 +285,8 @@ var timerhelp =setInterval(function () {
 
     countdown.innerHTML =  sec + "s";   
     if(sec==0){
+      
+
       var localvar=parseInt(window.localStorage.getItem("index"));
       window.localStorage.setItem("index", localvar+1);
       if(window.localStorage.getItem("index")>=sampletask.length){
@@ -393,8 +299,10 @@ var timerhelp =setInterval(function () {
 }, 1000);
 }
 
+var baseurl="http://172.27.30.80/classquiz/handler.php";
 //alert(window.localStorage.getItem("index"));
   $(document).ready(function () {
+
     var timerhelp;
     populatevalues();
   });
@@ -415,19 +323,19 @@ var timerhelp =setInterval(function () {
   </div>
    <div class="row">
     <div class="six columns">
-      <p id="option1 onclick='f1()'"></p>
+      <p id="option1" onclick='f1()'></p>
     </div>
      <div class="six columns">
-      <p id="option2 onclick='f2()'"></p>
+      <p id="option2" onclick='f2()'></p>
     </div>
    
   </div><div class="row">
     <div class="six columns">
-      <p id="option3 onclick='f3()"></p>
+      <p id="option3" onclick='f3()'></p>
     </div>
    
      <div class="six columns">
-      <p id="option4 onclick='f4()"></p>
+      <p id="option4" onclick='f4()'></p>
     </div>
   
   </div>
@@ -437,9 +345,9 @@ var timerhelp =setInterval(function () {
   <script>
   var oldieCheck = Boolean(document.getElementsByTagName('html')[0].className.match(/\soldie\s/g));
   if(!oldieCheck) {
-    document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"><\/script>');
+    document.write('<script src="jquery.min.js"><\/script>');
   } else {
-    document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"><\/script>');
+    document.write('<script src="jqueryold.js"><\/script>');
   }
   </script>
   <script>
