@@ -133,19 +133,263 @@
 <body>
 <script src="data.js"></script>
 <script type="text/javascript">
-window.localStorage.setItem("index", 0);
+window.localStorage.setItem("index", 1);
+window.localStorage.setItem("userid","arpitj");
+function populatevalues(){
 
-//alert(window.localStorage.getItem("index"));
-  $(document).ready(function () {
     if(window.localStorage.getItem("index")<sampletask.length){
+
     //alert(sampletask.length);
-    var temp=window.localStorage.getItem("index");
+    var temp=window.localStorage.getItem("index")-1;
+    console.log(sampletask[temp].timelimit);
+    //alert(typeof(temp.time));
+    createtimer(sampletask[temp].timelimit + 1);
       document.getElementById('question').innerHTML=sampletask[temp].question;
       document.getElementById('option1').innerHTML=sampletask[temp].option1;
       document.getElementById('option2').innerHTML=sampletask[temp].option2;
       document.getElementById('option3').innerHTML=sampletask[temp].option3;
       document.getElementById('option4').innerHTML=sampletask[temp].option4;
     }
+}
+
+
+     //var re = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+     //alert(document.getElementById("signupform").elements[0].value);
+     //if(re.test(document.getElementById("signupform").elements[0].value))
+
+function f1()
+
+{
+  if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+      alert(xmlhttp.responseText);
+      window.location.assign('index.html');
+
+    //if(xmlhttp.responseText=="user exists")
+    //document.getElementById("status").innerHTML="Wrong credentials entered. Please try again!";
+  //alert("Email ID already taken. Try a new one!");
+//window.location.assign('index.html');
+
+
+    //else if (xmlhttp.responseText=="user inserted"){
+     // alert("User registered. Proceed to login page.")
+      //window.location.assign('index.html');
+     
+     //else if(xmlhttp.responseText=="Exception caught")
+     //{
+      //alert("Some error occurred. Please try again!")
+      //window.location.assign('index.html');
+     //}
+    }
+  }
+xmlhttp.open("POST","http://172.27.30.129/classquiz/handler.php",true);
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+//alert();
+
+//sts="username=".concat(document.getElementById("signupform").elements[0].value);
+sts="userid=".concat(window.localStorage.getItem("userid"));
+sts=sts.concat("&answer=").concat('A');
+sts=sts.concat("&time=").concat(temp.time-window.localStorage.getItem("time"));
+sts=sts.concat("&questionid=").concat(temp.index);
+sts=sts.concat("&timestamp=").concat(Date.now() / 1000);
+//alert(sts);
+xmlhttp.send(sts);
+ var localvar=window.localStorage.getItem("index");
+      window.localStorage.setItem("index", localvar+1);
+
+}
+
+
+function f2()
+
+{
+  if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+      alert(xmlhttp.responseText);
+      window.location.assign('index.html');
+
+    //if(xmlhttp.responseText=="user exists")
+    //document.getElementById("status").innerHTML="Wrong credentials entered. Please try again!";
+  //alert("Email ID already taken. Try a new one!");
+//window.location.assign('index.html');
+
+
+    //else if (xmlhttp.responseText=="user inserted"){
+     // alert("User registered. Proceed to login page.")
+      //window.location.assign('index.html');
+     
+     //else if(xmlhttp.responseText=="Exception caught")
+     //{
+      //alert("Some error occurred. Please try again!")
+      //window.location.assign('index.html');
+     //}
+    }
+  }
+xmlhttp.open("POST","http://172.27.30.129/classquiz/handler.php",true);
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+//alert();
+
+//sts="username=".concat(document.getElementById("signupform").elements[0].value);
+sts="userid=".concat(window.localStorage.getItem("userid"));
+sts=sts.concat("&answer=").concat('B');
+sts=sts.concat("&time=").concat(temp.time-window.localStorage.getItem("time"));
+sts=sts.concat("&questionid=").concat(temp.index);
+sts=sts.concat("&timestamp=").concat(Date.now() / 1000);
+//alert(sts);
+xmlhttp.send(sts);
+
+ var localvar=window.localStorage.getItem("index");
+      window.localStorage.setItem("index", localvar+1);
+}
+
+function f3()
+
+{
+  if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+      alert(xmlhttp.responseText);
+      window.location.assign('index.html');
+
+    //if(xmlhttp.responseText=="user exists")
+    //document.getElementById("status").innerHTML="Wrong credentials entered. Please try again!";
+  //alert("Email ID already taken. Try a new one!");
+//window.location.assign('index.html');
+
+
+    //else if (xmlhttp.responseText=="user inserted"){
+     // alert("User registered. Proceed to login page.")
+      //window.location.assign('index.html');
+     
+     //else if(xmlhttp.responseText=="Exception caught")
+     //{
+      //alert("Some error occurred. Please try again!")
+      //window.location.assign('index.html');
+     //}
+    }
+  }
+xmlhttp.open("POST","http://172.27.30.129/classquiz/handler.php",true);
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+//alert();
+
+//sts="username=".concat(document.getElementById("signupform").elements[0].value);
+sts="userid=".concat(window.localStorage.getItem("userid"));
+sts=sts.concat("&answer=").concat('C');
+sts=sts.concat("&time=").concat(temp.time-window.localStorage.getItem("time"));
+sts=sts.concat("&questionid=").concat(temp.index);
+sts=sts.concat("&timestamp=").concat(Date.now() / 1000);
+//alert(sts);
+xmlhttp.send(sts);
+
+ var localvar=window.localStorage.getItem("index");
+      window.localStorage.setItem("index", localvar+1);
+}
+
+function f4()
+
+{
+  if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+      alert(xmlhttp.responseText);
+      window.location.assign('index.html');
+
+    //if(xmlhttp.responseText=="user exists")
+    //document.getElementById("status").innerHTML="Wrong credentials entered. Please try again!";
+  //alert("Email ID already taken. Try a new one!");
+//window.location.assign('index.html');
+
+
+    //else if (xmlhttp.responseText=="user inserted"){
+     // alert("User registered. Proceed to login page.")
+      //window.location.assign('index.html');
+     
+     //else if(xmlhttp.responseText=="Exception caught")
+     //{
+      //alert("Some error occurred. Please try again!")
+      //window.location.assign('index.html');
+     //}
+    }
+  }
+xmlhttp.open("POST","http://172.27.30.129/classquiz/handler.php",true);
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+//alert();
+
+//sts="username=".concat(document.getElementById("signupform").elements[0].value);
+sts="userid=".concat(window.localStorage.getItem("userid"));
+sts=sts.concat("&answer=").concat('D');
+sts=sts.concat("&time=").concat(temp.time-window.localStorage.getItem("time"));
+sts=sts.concat("&questionid=").concat(temp.index);
+sts=sts.concat("&timestamp=").concat(Date.now() / 1000);
+//alert(sts);
+xmlhttp.send(sts);
+
+ var localvar=window.localStorage.getItem("index");
+      window.localStorage.setItem("index", localvar+1);
+}
+var timerhelp;
+    function createtimer (sec){
+var countdown = document.getElementById("countdown");
+
+// update the tag with id "countdown" every 1 second
+timerhelp =setInterval(function () {
+
+    sec--;
+    window.localStorage.setItem("time",sec);
+    // format countdown string + set tag value
+
+    countdown.innerHTML =  sec + "s";   
+    if(sec==0){
+      var localvar=window.localStorage.getItem("index");
+      window.localStorage.setItem("index", localvar+1);
+        clearInterval(timerhelp);
+      populatevalues();
+
+    }
+}, 1000);
+}
+
+//alert(window.localStorage.getItem("index"));
+  $(document).ready(function () {
+    populatevalues();
   });
 </script>
 
@@ -155,8 +399,7 @@ window.localStorage.setItem("index", 0);
     </div>
   </div>
   </script>
-<script>
-</script>
+
 
   <div class="row">
     <div class="twelve columns">
@@ -165,7 +408,7 @@ window.localStorage.setItem("index", 0);
   </div>
    <div class="row">
     <div class="six columns">
-      <p id="option1"></p>
+      <p id="option1" onclick="f1"></p>
     </div>
      <div class="six columns">
       <p id="option2"></p>
@@ -211,22 +454,5 @@ window.localStorage.setItem("index", 0);
   
 
   
-    <script type="text/javascript">
-// set the date we're counting down to
-function createtimer (sec){
-var countdown = document.getElementById("countdown");
-
-// update the tag with id "countdown" every 1 second
-setInterval(function () {
-
-    sec--;
-    // format countdown string + set tag value
-
-    countdown.innerHTML =  sec + "s";   
-    if(sec==0)location.reload();
-}, 1000);
-}
-</script>
-
   </body>
 </html>

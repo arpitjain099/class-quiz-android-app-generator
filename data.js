@@ -1,3 +1,3 @@
-var sampletask=[{'coursename': 'cs315', 'question': 'Question1', 'answer': 'A', 'option4': 'D', 'option2': 'B', 'option3': 'C', 'option1': 'A'},
-{'coursename': 'cs315', 'question': 'Question2', 'answer': 'C', 'option4': 'C', 'option2': 'A', 'option3': 'D', 'option1': 'B'},{'coursename': 'cs315', 'question': 'Question3', 'answer': 'C', 'option4': 'C', 'option2': 'A', 'option3': 'D', 'option1': 'B'}
+var sampletask=[{'coursename': 'cs315_1', 'index': 1, 'timelimit': 5, 'answer': 'A', 'option2': 'B', 'option4': 'D', 'question': 'Question1', 'option3': 'C', 'option1': 'A'},
+{'coursename': 'cs315_1', 'index': 2, 'timelimit': 5, 'answer': 'C', 'option2': 'A', 'option4': 'C', 'question': 'Question2', 'option3': 'D', 'option1': 'B'},
 ]
