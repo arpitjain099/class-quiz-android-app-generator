@@ -33,8 +33,11 @@ coursename=coursename.replace("uploads/","")
 coursename=coursename.replace(".csv","")
 os.chdir("projects/")
 #os.system("pwd")
+#os.system("npm install phonegap")
 os.system("cordova create "+coursename+" com.example.hello "+coursename)
-
+os.system("export ANDROID_HOME=/home/arpitj/Downloads/Android/Sdk/")
+os.system("export PATH=$PATH:$ANDROID_HOME/bin")
+os.system("cordova platform add android")
 root_src_dir = '../www/'
 root_dst_dir = "../projects/"+coursename+"/www/"
 shutil.rmtree("../projects/"+coursename+"/www/")
@@ -69,5 +72,7 @@ with open("../"+sys.argv[1], 'rb') as csvfile:
 fi.write("]")
 fi.close()
 os.chdir("../projects/"+coursename)
+
+
 os.system("cordova platform add android")
 os.system("cordova build android")
